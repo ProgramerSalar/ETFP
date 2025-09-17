@@ -1,0 +1,63 @@
+<s> ### Instruction:
+    You are POS receipt data expert, parse, detect, recognize and convert following receipt OCR image result into structure receipt data object. 
+    Don't make up value not in the Input. Output must be a well-formed JSON object.```json
+
+    ### Input:
+    ['The Lone Pine', '43 Manchester Road', '12480 Brisbane', 'Australia', '617-3236-6207', 'Invoice 08000008', '09/04/08', 'Table', '25', '12:45', '2 Carlsberg Bottle', '16.00', '3 Heineken Draft Standard', '24.60', '1 Heineken Draft Half Liter', '15.20', '2 Carlsberg Bucket (5 bottles)', '80.00', '4 Grilled Chicken Breast', '74.00', '3 Sirloin Steak', '96.00', '1 Coke', '3.50', '5 Ice Cream', '18.00', 'Subtotal', '327.30', 'Sales/Gov Tax - 5%', '16.36', 'Service Charge - 10%', '32.73', 'GRAND TOTAL', '376.40', 'Thank you and', 'Cash', '400.00', 'see you again!', 'Change', '23.60', 'John', 'Bring this bill back within the next 10 days', "and get 15% discount on that day's food bill."]
+
+    ### Output:
+     {
+        "store": "The Lone Pine",
+        "address": "43 Manchester Road, 12480 Brisbane, Australia",
+        "phone": "617-3236-6207",
+        "invoice": "Invoice 08000008",
+        "date": "09/04/08",
+        "table": "Table",
+        "people": "25",
+        "time": "12:45",
+        "items": [
+            {
+                "name": "Carlsberg Bottle",
+                "price": "16.00",
+                "quantity": "2"
+            },
+            {
+                "name": "Heineken Draft Standard",
+                "price": "24.60",
+                "quantity": "3"
+            },
+            {
+                "name": "Heineken Draft Half Liter",
+                "price": "15.20",
+                "quantity": "1"
+            },
+            {
+                "name": "Carlsberg Bucket (5 bottles)",
+                "price": "80.00",
+                "quantity": "2"
+            },
+            {
+                "name": "Grilled Chicken Breast",
+                "price": "74.00",
+                "quantity": "4"
+            },
+            {
+                "name": "Sirloin Steak",
+                "price": "96.00",
+                "quantity": "3"
+            },
+            {
+                "name": "Coke",
+                "price": "3.50",
+                "quantity": "1"
+            },
+            {
+                "name": "Ice Cream",
+                "price": "18.00",
+                "quantity": "5"
+            }
+        ],
+        "subtotal": "327.30",
+        "tax": "16.36",
+        "service": "32.73",
+        "total

@@ -1,0 +1,46 @@
+{
+      "invoice_number": "Invoice 08000008",
+      "date": "09/04/08",
+      "due_date": "",
+      "bill_to": {
+        "name": "The Lone Pine",
+        "address": "43 Manchester Road\n12480 Brisbane\nAustralia",
+        "phone": "617-3236-6207"
+      },
+      "items": [
+        {
+          "description": "Carlsberg Bottle",
+          "quantity": 2,
+          "unit_price": 16.00,
+          "amount": 32.00
+        },
+        {
+          "description": "Heineken Draft Standard",
+          "quantity": 3,
+          "unit_price": 24.60,
+          "amount": 73.80
+        },
+        {
+          "description": "Heineken Draft Half Liter",
+          "quantity": 1,
+          "unit_price": 15.20,
+          "amount": 15.20
+        },
+        {
+          "description": "Carlsberg Bucket (5 bottles)",
+          "quantity": 2,
+          "unit_price": 80.00,
+          "amount": 160.00
+        },
+        {
+          "description": "Grilled Chicken Breast",
+          "quantity": 4,
+          "unit_price": 74.00,
+          "amount": 296.00
+        },
+        {
+          "description": "Sirloin Steak",
+          "quantity": 3,
+          "unit_price": 96.00,
+          "amount": 288.00
+        }
