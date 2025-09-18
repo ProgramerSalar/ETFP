@@ -8,10 +8,44 @@ custom_css = """
     }
 """
 
-def extract_text(image):
-    # Convert the image to text using pytesseract
-    text = pytesseract.image_to_string(image)
-    return text
+
+from PIL import Image
+import io 
+
+def image_format(image_path):
+    
+    # Open the image file using Pillow
+        img = Image.open(image_path)
+        
+        print(img)
+        
+        # Create a BytesIO object to store the image in memory
+        img_byte_arr = io.BytesIO()
+        
+        # Save the image to the BytesIO object. The format is inferred from the original file extension.
+        # You can specify the format like: img.save(img_byte_arr, format='PNG')
+        img.save(img_byte_arr, format=img.format)
+        
+        # Get the byte data from the BytesIO object
+        image_bytes = img_byte_arr.getvalue()
+        
+        # Return the data in the specified list of dictionaries format
+        image_parts = [
+            {
+                "mime_type": "image/png",
+                "data": image_bytes
+            }
+        ]
+        
+        return image_parts
+
+
+
+
+def extract_text(image_path):
+    
+    output = image_format(image_path)
+    return output
 
 # Create the Gradio interface
 iface = gr.Interface(

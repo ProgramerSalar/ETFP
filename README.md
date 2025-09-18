@@ -21,3 +21,6 @@ in the terminal show like link:
 
 so you will copy the second link and paste your browser to used
 
+
+
+mistral ai api_key: kHz5lB99u4ZktwjoUXcZ7Mck9R1LI4MC
