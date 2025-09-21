@@ -24,3 +24,19 @@ so you will copy the second link and paste your browser to used
 
 
 mistral ai api_key: kHz5lB99u4ZktwjoUXcZ7Mck9R1LI4MC
+
+
+
+# how i can convert multiple invoice image to json 
+
+```
+    git clone https://github.com/ProgramerSalar/ETFP.git
+    cd ETFP
+    pip install -r req.txt
+
+    # run the server file 
+    python -m server 
+
+    # run the gardio 
+    python -m gardio
+```
