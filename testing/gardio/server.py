@@ -27,18 +27,18 @@ DB_NAME = "receipt_processor"
 COLLECTION_NAME = "processed_receipts"
 
 
-try:
-    client = MongoClient(MONGODB_URI)
+# try:
+#     client = MongoClient(MONGODB_URI)
     
     
-    db = client[DB_NAME]
-    collection = db[COLLECTION_NAME]
-    print("Connected to mongodb successfully...")
+#     db = client[DB_NAME]
+#     collection = db[COLLECTION_NAME]
+#     print("Connected to mongodb successfully...")
 
-except Exception as e:
-    print(f"Error connecting to MongoDB: {e}")
-    client = None
-    collection = None
+# except Exception as e:
+#     print(f"Error connecting to MongoDB: {e}")
+#     client = None
+#     collection = None
     
 
 app = FastAPI(title="Testing api working or not ...")
@@ -87,31 +87,31 @@ def image_format(image_path):
 
 
 
-def save_to_mongodb(data, filename=None):
+# def save_to_mongodb(data, filename=None):
 
-    """Save processed receipt data to mongodb"""
+#     """Save processed receipt data to mongodb"""
 
-    if not client:
-        print("Mongdb client not initialized.")
-        return None
+#     if not client:
+#         print("Mongdb client not initialized.")
+#         return None
     
-    try:
-        document = {
-            "data": data,
-            "filename": filename,
-            "processed_at": datetime.now(timezone.utc),
-            "status": "processed"
-        }
-        print(f"document: {document}")
+#     try:
+#         document = {
+#             "data": data,
+#             "filename": filename,
+#             "processed_at": datetime.now(timezone.utc),
+#             "status": "processed"
+#         }
+#         print(f"document: {document}")
 
-        # Insert into mongodb 
-        result = collection.insert_one(document)
-        print(f"Data saved to MOngodb with ID: {result.inserted_id}")
-        return result.inserted_id
+#         # Insert into mongodb 
+#         result = collection.insert_one(document)
+#         print(f"Data saved to MOngodb with ID: {result.inserted_id}")
+#         return result.inserted_id
     
-    except Exception as e:
-        print(f"Error saving to MongoDB: {e}")
-        return None
+#     except Exception as e:
+#         print(f"Error saving to MongoDB: {e}")
+#         return None
     
     
 
@@ -167,16 +167,20 @@ async def process_receipt(file: UploadFile = File(...)):
 
 
             # Save to MongoDB 
-            db_id = save_to_mongodb(json_data, filename=file.filename)
-            print(f"result: >>>>>>>>> {db_id}")
+            # db_id = save_to_mongodb(json_data, filename=file.filename)
+            # print(f"result: >>>>>>>>> {db_id}")
 
 
             # clean up temporary file 
             os.unlink(temp_file_path)
 
+            # return {"success": True,
+            #         "data": json_data,
+            #         "mongodb_id": str(db_id) if db_id else None}
+        
             return {"success": True,
                     "data": json_data,
-                    "mongodb_id": str(db_id) if db_id else None}
+                    }
         
 
     except Exception as e:

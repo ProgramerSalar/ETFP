@@ -1,3 +1,5 @@
 pytesseract
 pillow
 gradio
+google-generativeai
+pymongo
